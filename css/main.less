@@ -1,0 +1,36 @@
+@width: 1200px;
+@height: 900px;
+
+body {
+    background: black;
+}
+#screen {
+    position: relative;
+    height: @height;
+    width: @width;
+    margin: auto;
+    padding: 0px;
+    background-image: url('/img/windows-back.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: @width @height;
+    background-repeat: no-repeat;
+}
+
+#taskbar {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 5%;
+    width: 100%;
+    margin: 0px;
+    background: rgba(1, 1, 1, 0.8);
+}
+
+#start-button {
+    float: left;
+    position: top;
+    height: 100%;
+    margin: 0px;
+}
+
