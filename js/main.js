@@ -82,7 +82,7 @@ function create() {
     game.input.keyboard.addCallbacks(this, null, null, function(){notepad.keyPressed()});
 
     // start the game
-    game.time.events.add(Phaser.Timer.SECOND * 10, boss, this); 
+    game.time.events.add(Phaser.Timer.SECOND * 10, level1, this); 
 
     // make sure the cursor is on top
     allGroup.bringToTop(cursor);
