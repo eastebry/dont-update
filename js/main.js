@@ -18,17 +18,17 @@ game = new Phaser.Game(WIDTH, HEIGHT, Phaser.CANVAS, 'screen',
     });
 
 function preload() {
-    game.load.image("windows-background", "/assets/img/windows-back.png");
-    game.load.image("notepad", "/assets/img/notepad.png");
-    game.load.image("saw", "/assets/img/saw.png");
-    game.load.image("cursor", "/assets/img/cursor.png");
-    game.load.image("rocket", "/assets/img/rocket.png");
-    game.load.image("smoke", "/assets/img/smoke.png");
-    game.load.image("updateWindow", "/assets/img/dialog.png");
-    game.load.spritesheet("button01", "/assets/img/button01.png", 150, 40);
-    game.load.spritesheet("button02", "/assets/img/xbuttons.png", 50, 50);
-    game.load.spritesheet("explosion", "/assets/img/explosion.png", 128, 128);
-    game.load.text("typingText", "/assets/text.txt");
+    game.load.image("windows-background", "assets/img/windows-back.png");
+    game.load.image("notepad", "assets/img/notepad.png");
+    game.load.image("saw", "assets/img/saw.png");
+    game.load.image("cursor", "assets/img/cursor.png");
+    game.load.image("rocket", "assets/img/rocket.png");
+    game.load.image("smoke", "assets/img/smoke.png");
+    game.load.image("updateWindow", "assets/img/dialog.png");
+    game.load.spritesheet("button01", "assets/img/button01.png", 150, 40);
+    game.load.spritesheet("button02", "assets/img/xbuttons.png", 50, 50);
+    game.load.spritesheet("explosion", "assets/img/explosion.png", 128, 128);
+    game.load.text("typingText", "assets/text.txt");
 }
 
 function update(){
