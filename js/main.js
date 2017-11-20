@@ -12,9 +12,9 @@ var windowGroup, allGroup;
 var updateFunction;
 var boss;
 game = new Phaser.Game(WIDTH, HEIGHT, Phaser.CANVAS, 'screen',
-    {   preload: preload, 
+    {   preload: preload,
         create: create,
-        update: update 
+        update: update
     });
 
 function preload() {
@@ -25,6 +25,7 @@ function preload() {
     game.load.image("rocket", "assets/img/rocket.png");
     game.load.image("smoke", "assets/img/smoke.png");
     game.load.image("updateWindow", "assets/img/dialog.png");
+    game.load.image("startbutton", "assets/img/start-button.png");
     game.load.spritesheet("button01", "assets/img/button01.png", 150, 40);
     game.load.spritesheet("button02", "assets/img/xbuttons.png", 50, 50);
     game.load.spritesheet("explosion", "assets/img/explosion.png", 128, 128);
@@ -38,15 +39,15 @@ function update(){
 function create() {
     var imageX = game.cache.getImage("windows-background").width;
     var imageY  = game.cache.getImage("windows-background").height;
-    var scaleX = WIDTH / imageX; 
+    var scaleX = WIDTH / imageX;
     var scaleY = HEIGHT / imageY;
     background = game.add.tileSprite(0, 0, imageX, imageY, "windows-background");
     background.scale.setTo(scaleX, scaleY);
 
     drawTaskbar();
-    
-    allGroup = game.add.group(); 
-    
+
+    allGroup = game.add.group();
+
     // create the cursor
     cursor = new Cursor(game);
     allGroup.add(cursor);
@@ -60,14 +61,14 @@ function create() {
     var graphics = game.add.graphics(0, 0);
     graphics.beginFill(0x777777, 0.7);
     graphics.drawRect(5, 5, 600, 50);
-    window.graphics = graphics; 
-    healthbar = new HealthBar(game, 
+    window.graphics = graphics;
+    healthbar = new HealthBar(game,
         {
             x: 390, y: 30,
             width: 400, height: 30,
             bg: {color: '#333333'},
             bar: {color: '#00FF00'},
-    }); 
+    });
     healthText = game.add.text(15, 18, 'Paper Progress:', WHITE_HEADER_FONT);
 
     updateFunction = function(){
@@ -82,7 +83,7 @@ function create() {
     game.input.keyboard.addCallbacks(this, null, null, function(){notepad.keyPressed()});
 
     // start the game
-    game.time.events.add(Phaser.Timer.SECOND * 10, level1, this); 
+    game.time.events.add(Phaser.Timer.SECOND * 10, level1, this);
 
     // make sure the cursor is on top
     allGroup.bringToTop(cursor);
@@ -92,7 +93,9 @@ function drawTaskbar() {
     var graphics = game.add.graphics(0, 0);
     graphics.beginFill(0x777777, 0.5);
     graphics.drawRect(0, HEIGHT - HEIGHT *.07, WIDTH, HEIGHT * .07);
-    window.graphics = graphics; 
+    window.graphics = graphics;
+    var startbutton = game.add.sprite(3, HEIGHT - HEIGHT * .07 + 3, 'startbutton');
+    startbutton.scale = {x: .2, y: .2};
 }
 
 function render() {
