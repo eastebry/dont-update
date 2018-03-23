@@ -83,7 +83,18 @@ function create() {
     game.input.keyboard.addCallbacks(this, null, null, function(){notepad.keyPressed()});
 
     // start the game
-    game.time.events.add(Phaser.Timer.SECOND * 10, level1, this);
+    var style = { font: "24px Arial", fill: "#000", align: "center"};
+    var instructionText = game.add.text(game.world.width/2, game.world.height * 0.75, "Type in the notepad to finish your paper. Don't update", style);
+    instructionText.anchor.setTo(0.5, 0);
+    instructionText.alpha = 0.0;
+    game.time.events.add(Phaser.Timer.SECOND *3, function() { 
+        game.add.tween(instructionText).to( { alpha: 1 }, 2000, "Linear", true);
+        game.time.events.add(Phaser.Timer.SECOND *5, function() { 
+            game.add.tween(instructionText).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);},
+            this);
+        },
+    this);
+    game.time.events.add(Phaser.Timer.SECOND * 20, level1, this);
 
     // make sure the cursor is on top
     allGroup.bringToTop(cursor);
