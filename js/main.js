@@ -84,7 +84,7 @@ function create() {
 
     // start the game
     var style = { font: "24px Arial", fill: "#000", align: "center"};
-    var instructionText = game.add.text(game.world.width/2, game.world.height * 0.75, "Type in the notepad to finish your paper. Don't update", style);
+    var instructionText = game.add.text(game.world.width/2, game.world.height * 0.75, "Type in the notepad to finish your paper. Don't update to windows 10", style);
     instructionText.anchor.setTo(0.5, 0);
     instructionText.alpha = 0.0;
     game.time.events.add(Phaser.Timer.SECOND *3, function() { 
